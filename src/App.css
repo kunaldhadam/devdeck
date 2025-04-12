@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+.picker-image-holder{
+    max-width: 30rem;
+    width: 90%;
+}
+
+
+.swatch:hover {
+    cursor: pointer;
+    box-shadow: 0 0 0 2px rgb(255, 255, 255),0 0 0 4px rgb(3, 3, 3);
+    z-index: 10;
+}
+
+img.color-picker{
+    cursor: crosshair;
+}
+
+@media screen and (max-width: 640px) {
+    /* for small screens */
+    .flex-switch{
+        flex-direction: column;
+        width: 90%;
+    }
+}
+
+.bg-primary{
+    background-color: #6955af;
+}
