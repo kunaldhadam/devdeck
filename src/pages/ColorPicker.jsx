@@ -23,7 +23,7 @@ function ColorPicker() {
     const canvasRef = useRef(null);
     const imgRef = useRef(null);
     const [palette, setPalette] = useState([]);
-    const [imageSrc, setImageSrc] = useState('src/assets/color-picker-default.jpeg'); // <-- default image path
+    const [imageSrc, setImageSrc] = useState('assets/color-picker-default.jpeg'); // <-- default image path
     const [currentColor, setCurrentColor] = useState(null);
     const [selectedColor, setSelectedColor] = useState(null);
 
@@ -83,7 +83,10 @@ function ColorPicker() {
     };
 
     const handleClick = () => {
-        if (currentColor) setSelectedColor(currentColor);
+        if (currentColor) {
+            setSelectedColor(currentColor);
+            navigator.clipboard.writeText(currentColor.hex);
+        }
     };
 
     // Handle image upload
@@ -109,6 +112,7 @@ function ColorPicker() {
             rgb: rgbColor,
             hex: rgbToHex(rgbColor)
         })
+        navigator.clipboard.writeText(rgbToHex(rgbColor));
     }
 
     const rgbToHex = (rgb) => {
@@ -163,12 +167,17 @@ function ColorPicker() {
 
     return (
         <div className='flex flex-col items-center h-screen'>
-            <h1 className='text-2xl font-bold my-4'>Color Picker</h1><br />
-            <div className="flex gap-6 flex-switch">
+            <h1 className='text-4xl'>Color Picker</h1>
+            {/* <p className="text-gray-600 mb-4">
+          Click to copy hex code
+        </p> */}
+        <br />
+            <div className="color-picker flex gap-6 flex-switch">
                 <div
+
                 onDragOver={(e) => e.preventDefault()}
                 onDrop={handleDrop}
-                className="picker-image-holder shadow p-4 border rounded-sm border-gray-300">
+                className="bg-white picker-image-holder shadow p-4 border rounded-sm border-gray-300">
                     <div className="flex items-center">
                     <label className="block w-fit cursor-pointer bg-gray-300 text-black px-4 py-2 shadow shadow-lg border hover:bg-gray-300">
                         Choose File
@@ -211,8 +220,7 @@ function ColorPicker() {
                     </div>
                 </div>
                 <div>
-                
-                    <div className='shadow p-4 border rounded-sm border-gray-300' style={{'maxWidth': '18rem'}}>
+                    <div className='bg-white shadow p-4 border rounded-sm border-gray-300' style={{'maxWidth': '18rem'}}>
                         <ColorSwatch color={selectedColor} />
                         <ColorSwatch color={currentColor} />
                     </div>

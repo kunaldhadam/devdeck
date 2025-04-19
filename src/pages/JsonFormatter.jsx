@@ -23,7 +23,8 @@ function JsonFormatter() {
         <div className="p-4 max-w-4xl mx-auto">
           <h1 className="text-2xl font-bold mb-4">JSON Formatter</h1>
           <textarea
-            className="w-full h-40 p-2 border rounded"
+
+            className="bg-white w-full h-40 p-2 border rounded"
             placeholder="Paste your JSON here..."
             value={input}
             onChange={(e) => setInput(e.target.value)}

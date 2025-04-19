@@ -126,11 +126,6 @@ const RegexGenerator = () => {
           onTestRegex={handleTestRegex}
         />
       </main>
-
-      <footer className="mt-12 text-center text-gray-500 text-sm">
-        <p>RegEx Generator - A modular component for pattern recognition</p>
-        <p className="mt-1">Can be easily integrated into any React application</p>
-      </footer>
     </div>
   );
 };
