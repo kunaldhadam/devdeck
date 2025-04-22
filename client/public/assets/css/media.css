@@ -1,0 +1,14 @@
+@media screen and (max-width: 390px) {
+    .content {
+        margin: 0;
+        width: 100%;
+    }
+    .sidebar,
+    .todo-container{
+        display: none;
+    }
+    .system-stats{
+        width: 100vw;
+    }
+    
+}
