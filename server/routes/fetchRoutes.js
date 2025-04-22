@@ -58,7 +58,7 @@ router.get('/reddit/:keyword', async (req, res) => {
     res.json({ posts });
   } catch (err) {
     console.error(err.message);
-    res.status(500).json({ error: 'Failed to fetch reddit posts' });
+    res.status(500).json({ error: `Failed to fetch reddit posts ${err.message}` });
   }
 });
 
